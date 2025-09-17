@@ -1,0 +1,55 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - VITE_API_URL=http://backend:5000/api
+    depends_on:
+      - backend
+    networks:
+      - voting-network
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "5001:5000"
+    environment:
+      - NODE_ENV=production
+      - MONGODB_URI=mongodb://mongodb:27017/voting_system
+      - JWT_SECRET=your_jwt_secret_key_here_change_this_in_production
+      - ADMIN_EMAIL=admin@example.com
+      - ADMIN_PASSWORD=admin123
+      - EMAIL_USER=your_email@gmail.com
+      - EMAIL_PASS=your_gmail_app_password
+      - FRONTEND_URL=http://localhost:3000
+    depends_on:
+      - mongodb
+    networks:
+      - voting-network
+    volumes:
+      - ./backend/uploads:/app/uploads
+
+  mongodb:
+    image: mongo:7
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_DATABASE=voting_system
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - voting-network
+
+volumes:
+  mongodb_data:
+
+networks:
+  voting-network:
+    driver: bridge
