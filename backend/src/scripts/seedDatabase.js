@@ -126,6 +126,14 @@ const seedData = async () => {
         });
         await admin5.save();
 
+        const admin6 = new Admin({
+            email: 'info@mehome.co.nz',
+            password:  'admin123',
+            voteWeight: 20
+        })
+
+        await admin6.save();
+
 
 
         console.log('Admin user created successfully');
