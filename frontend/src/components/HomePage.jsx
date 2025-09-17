@@ -67,38 +67,38 @@ const HomePage = ({ contestants, onUpdate }) => {
                 </div>
             </div>
 
-            {/* Statistics Section */}
-            <div className="container mx-auto px-4 mb-16">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 text-center shadow-lg border border-amber-200">
-                        <div className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center" style={{ backgroundColor: '#F5DEB3' }}>
-                            <Users className="w-8 h-8" style={{ color: '#8B4513' }} />
-                        </div>
-                        <div className="text-3xl font-bold mb-2" style={{ color: '#8B4513' }}>{contestants.length}</div>
-                        <div className="text-lg" style={{ color: '#A0522D' }}>Contestants</div>
-                    </div>
+            {/*/!* Statistics Section *!/*/}
+            {/*<div className="container mx-auto px-4 mb-16">*/}
+            {/*    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">*/}
+            {/*        <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 text-center shadow-lg border border-amber-200">*/}
+            {/*            <div className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center" style={{ backgroundColor: '#F5DEB3' }}>*/}
+            {/*                <Users className="w-8 h-8" style={{ color: '#8B4513' }} />*/}
+            {/*            </div>*/}
+            {/*            <div className="text-3xl font-bold mb-2" style={{ color: '#8B4513' }}>{contestants.length}</div>*/}
+            {/*            <div className="text-lg" style={{ color: '#A0522D' }}>Contestants</div>*/}
+            {/*        </div>*/}
 
-                    <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 text-center shadow-lg border border-amber-200">
-                        <div className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center" style={{ backgroundColor: '#F5DEB3' }}>
-                            <Vote className="w-8 h-8" style={{ color: '#8B4513' }} />
-                        </div>
-                        <div className="text-3xl font-bold mb-2" style={{ color: '#8B4513' }}>
-                            {contestants.reduce((sum, c) => sum + c.votes, 0)}
-                        </div>
-                        <div className="text-lg" style={{ color: '#A0522D' }}>Total Votes</div>
-                    </div>
+            {/*        <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 text-center shadow-lg border border-amber-200">*/}
+            {/*            <div className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center" style={{ backgroundColor: '#F5DEB3' }}>*/}
+            {/*                <Vote className="w-8 h-8" style={{ color: '#8B4513' }} />*/}
+            {/*            </div>*/}
+            {/*            <div className="text-3xl font-bold mb-2" style={{ color: '#8B4513' }}>*/}
+            {/*                {contestants.reduce((sum, c) => sum + c.votes, 0)}*/}
+            {/*            </div>*/}
+            {/*            <div className="text-lg" style={{ color: '#A0522D' }}>Total Votes</div>*/}
+            {/*        </div>*/}
 
-                    <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 text-center shadow-lg border border-amber-200">
-                        <div className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center" style={{ backgroundColor: '#F5DEB3' }}>
-                            <Trophy className="w-8 h-8" style={{ color: '#8B4513' }} />
-                        </div>
-                        <div className="text-3xl font-bold mb-2" style={{ color: '#8B4513' }}>
-                            {contestants.reduce((sum, c) => sum + c.voters.length, 0)}
-                        </div>
-                        <div className="text-lg" style={{ color: '#A0522D' }}>Total Voters</div>
-                    </div>
-                </div>
-            </div>
+            {/*        <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 text-center shadow-lg border border-amber-200">*/}
+            {/*            <div className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center" style={{ backgroundColor: '#F5DEB3' }}>*/}
+            {/*                <Trophy className="w-8 h-8" style={{ color: '#8B4513' }} />*/}
+            {/*            </div>*/}
+            {/*            <div className="text-3xl font-bold mb-2" style={{ color: '#8B4513' }}>*/}
+            {/*                {contestants.reduce((sum, c) => sum + c.voters.length, 0)}*/}
+            {/*            </div>*/}
+            {/*            <div className="text-lg" style={{ color: '#A0522D' }}>Total Voters</div>*/}
+            {/*        </div>*/}
+            {/*    </div>*/}
+            {/*</div>*/}
 
             {/* Contestants Section */}
             <div className="container mx-auto px-4 mb-16">
@@ -190,24 +190,24 @@ const HomePage = ({ contestants, onUpdate }) => {
             </div>
 
             {/* Admin Access */}
-            <div className="container mx-auto px-4 pb-16">
-                <div className="text-center">
-                    <button
-                        onClick={() => navigate('/admin')}
-                        className="px-8 py-4 rounded-xl font-medium transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl border-2"
-                        style={{
-                            backgroundColor: 'transparent',
-                            borderColor: '#8B4513',
-                            color: '#8B4513'
-                        }}
-                    >
-                        <div className="flex items-center gap-2">
-                            <Users className="w-5 h-5" />
-                            Admin Panel
-                        </div>
-                    </button>
-                </div>
-            </div>
+            {/*<div className="container mx-auto px-4 pb-16">*/}
+            {/*    <div className="text-center">*/}
+            {/*        <button*/}
+            {/*            onClick={() => navigate('/admin')}*/}
+            {/*            className="px-8 py-4 rounded-xl font-medium transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl border-2"*/}
+            {/*            style={{*/}
+            {/*                backgroundColor: 'transparent',*/}
+            {/*                borderColor: '#8B4513',*/}
+            {/*                color: '#8B4513'*/}
+            {/*            }}*/}
+            {/*        >*/}
+            {/*            <div className="flex items-center gap-2">*/}
+            {/*                <Users className="w-5 h-5" />*/}
+            {/*                Admin Panel*/}
+            {/*            </div>*/}
+            {/*        </button>*/}
+            {/*    </div>*/}
+            {/*</div>*/}
 
             {/* Decorative Footer */}
             <div className="relative py-8">

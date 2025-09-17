@@ -166,7 +166,6 @@ const AdminPage = ({ onUpdate }) => {
                                     value={loginForm.email}
                                     onChange={(e) => setLoginForm(prev => ({ ...prev, email: e.target.value }))}
                                     className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                                    placeholder="admin@example.com"
                                     required
                                     disabled={loading}
                                 />
@@ -204,9 +203,7 @@ const AdminPage = ({ onUpdate }) => {
                                 {loading ? 'Logging in...' : 'Login'}
                             </button>
 
-                            <div className="text-xs text-gray-500 text-center">
-                                Default: admin@example.com / admin123
-                            </div>
+
                         </form>
 
                         {message && (
