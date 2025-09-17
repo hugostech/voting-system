@@ -9,7 +9,7 @@ const router = express.Router();
 // Rate limiting for vote requests
 const voteLimit = rateLimit({
     windowMs: 15 * 60 * 1000, // 15 minutes
-    max: 5, // limit each IP to 5 vote attempts per windowMs
+    max: 50, // limit each IP to 5 vote attempts per windowMs
     message: 'Too many vote attempts, please try again later.'
 });
 
@@ -27,12 +27,11 @@ router.post('/send-verification', async (req, res) => {
         // Check if email already voted for this contestant
         const existingVote = await Vote.findOne({
             voterEmail: email.toLowerCase(),
-            contestantId,
             isVerified: true
         });
 
         if (existingVote) {
-            return res.status(400).json({ message: 'This email has already voted for this contestant' });
+            return res.status(400).json({ message: 'This email has already voted' });
         }
 
         // Check if contestant exists

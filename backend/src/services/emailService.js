@@ -2,11 +2,13 @@ const nodemailer = require('nodemailer');
 
 // Configure email transporter (using Gmail as example)
 const transporter = nodemailer.createTransport({
-    service: 'gmail',
+    host: "sandbox.smtp.mailtrap.io",
+    port: 587,
+    secure: false, // upgrade later with STARTTLS
     auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS
-    }
+        user: "2bca8bd71a11f8",
+        pass: "8277394d867aec",
+    },
 });
 
 // For development, we'll simulate email sending

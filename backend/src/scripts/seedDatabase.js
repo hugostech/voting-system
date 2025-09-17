@@ -40,13 +40,35 @@ const seedData = async () => {
         console.log('Contestants created successfully');
 
         // Create default admin
-        const admin = new Admin({
-            email: 'admin@example.com',
-            password: 'admin123',
-            voteWeight: 20
-        });
+        const admins = [
+            {
+                email: 'zhouruijia2002@gmail.com',
+                password: 'admin123',
+                voteWeight: 20
+            },
+            {
+                email: 'yejabeatbox@gmail.com',
+                password: 'admin123',
+                voteWeight: 20
+            },
+            {
+                email: 'venusartsun@qq.com',
+                password: 'admin123',
+                voteWeight: 20
+            },
+            {
+                email: 'rita0410zhao@gmail.com',
+                password: 'admin123',
+                voteWeight: 20
+            },
+            {
+                email: 'hugowangchn@gmail.com',
+                password: 'admin123',
+                voteWeight: 20
+            },
 
-        await admin.save();
+        ];
+        await Admin.insertMany(admins);
         console.log('Admin user created successfully');
 
         console.log('Database seeded successfully!');
