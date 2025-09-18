@@ -22,7 +22,7 @@ services:
     restart: always
     environment:
       - NODE_ENV=production
-      - MONGODB_URI=mongodb://mongodb:27017/voting_system
+      - MONGODB_URI=mongodb://${MONGO_INITDB_ROOT_USERNAME}:${MONGO_INITDB_ROOT_PASSWORD}@mongodb:27017/voting_system?authSource=admin
       - JWT_SECRET=${JWT_SECRET}
       - EMAIL_USER=${EMAIL_USER}
       - EMAIL_PASS=${EMAIL_PASS}
@@ -39,19 +39,19 @@ services:
   mongodb:
     restart: always
     image: mongo:7
-    ports:
-      - "27017:27017"
     environment:
       - MONGO_INITDB_DATABASE=voting_system
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
     volumes:
-      - mongodb_data:/data/db
+      - mongodb_data1:/data/db
     networks:
       - frontend
       - backend
       - monitoring
 
 volumes:
-  mongodb_data:
+  mongodb_data1:
 
 networks:
   frontend:
