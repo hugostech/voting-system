@@ -40,6 +40,12 @@ router.post('/send-verification', async (req, res) => {
             return res.status(404).json({ message: 'Contestant not found' });
         }
 
+        // delete any previous unverified votes for this email and contestant
+        await Vote.deleteMany({
+            voterEmail: email.toLowerCase(),
+            isVerified: false
+        })
+
         // Generate verification code
         const verificationCode = Math.floor(100000 + Math.random() * 900000).toString();
 
