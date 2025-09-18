@@ -59,7 +59,7 @@ const seedData = async () => {
                     '刘奕菲 刘奕菲 刘奕菲 刘奕菲 刘奕菲\n' +
                     '\n' +
                     '谢谢谢谢谢谢谢谢谢谢谢谢谢谢谢谢谢谢谢谢谢谢谢谢谢谢谢谢谢谢谢谢谢谢谢谢谢谢谢谢谢谢谢谢谢谢谢谢',
-                avatar: 'hhttps://i.ibb.co/jNQKbh2/20250903233226-1.jpg'
+                avatar: 'https://i.ibb.co/jNQKbh2/20250903233226-1.jpg'
             },
             {
                 name: '大帝',
