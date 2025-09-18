@@ -3,12 +3,17 @@ const nodemailer = require('nodemailer');
 // Configure email transporter (using Gmail as example)
 const transporter = nodemailer.createTransport({
     host: "smtp.postmarkapp.com",
-    port: 587,
+    port: 2525,
     secure: false, // use STARTTLS
     auth: {
         user: "apikey", // Postmark requires this literal value
         pass: process.env.EMAIL_PASS, // your Postmark server token
     },
+    pool: true,
+    maxConnections: 2,
+    connectionTimeout: 20000, // 20s
+    greetingTimeout: 20000,
+    socketTimeout: 60000,
 });
 
 // For development, we'll simulate email sending
