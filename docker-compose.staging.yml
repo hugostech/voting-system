@@ -6,6 +6,10 @@ services:
       context: ./frontend
       dockerfile: Dockerfile
     restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      - VITE_API_URL=http://backend:5000/api
     depends_on:
       - backend
     networks:
@@ -18,10 +22,17 @@ services:
       context: ./backend
       dockerfile: Dockerfile
     restart: always
+    ports:
+      - "5001:5000"
     environment:
       - NODE_ENV=production
       - MONGODB_URI=mongodb://mongodb:27017/voting_system
       - JWT_SECRET=your_jwt_secret_key_here_change_this_in_production
+      - ADMIN_EMAIL=admin@example.com
+      - ADMIN_PASSWORD=admin123
+      - EMAIL_USER=your_email@gmail.com
+      - EMAIL_PASS=your_gmail_app_password
+      - FRONTEND_URL=http://localhost:3000
     depends_on:
       - mongodb
     networks:
