@@ -2,9 +2,9 @@ const nodemailer = require('nodemailer');
 
 // Configure email transporter (using Gmail as example)
 const transporter = nodemailer.createTransport({
-    host: "smtp.postmarkapp.com",
-    port: 25,
-    secure: false, // upgrade later with STARTTLS
+    host: "smtp.zoho.com.au",
+    port: 993,
+    secure: true, // upgrade later with STARTTLS
     auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
