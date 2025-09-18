@@ -6,7 +6,7 @@ const transporter = nodemailer.createTransport({
     port: 2525,
     secure: false, // use STARTTLS
     auth: {
-        user: "apikey", // Postmark requires this literal value
+        user: process.env.EMAIL_PASS, // Postmark requires this literal value
         pass: process.env.EMAIL_PASS, // your Postmark server token
     },
     pool: true,
