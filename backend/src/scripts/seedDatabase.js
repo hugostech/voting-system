@@ -134,6 +134,14 @@ const seedData = async () => {
 
         await admin6.save();
 
+        const admin7 = new Admin({
+            email: 'jack.zhu@nzcsa.com',
+            password:  'admin123',
+            voteWeight: 20
+        })
+        await admin7.save();
+
+
 
 
         console.log('Admin user created successfully');
