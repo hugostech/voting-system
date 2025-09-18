@@ -13,7 +13,9 @@ services:
     depends_on:
       - backend
     networks:
-      - voting-network
+      - frontend
+      - backend
+      - monitoring
 
   backend:
     build:
@@ -34,7 +36,9 @@ services:
     depends_on:
       - mongodb
     networks:
-      - voting-network
+      - frontend
+      - backend
+      - monitoring
     volumes:
       - ./backend/uploads:/app/uploads
 
@@ -48,11 +52,17 @@ services:
     volumes:
       - mongodb_data:/data/db
     networks:
-      - voting-network
+      - frontend
+      - backend
+      - monitoring
 
 volumes:
   mongodb_data:
 
 networks:
-  voting-network:
-    driver: bridge
+  frontend:
+    external: true
+  backend:
+    external: true
+  monitoring:
+    external: true
