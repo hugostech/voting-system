@@ -4,7 +4,7 @@ const nodemailer = require('nodemailer');
 const transporter = nodemailer.createTransport({
     host: "smtp.zoho.com.au",
     port: 993,
-    secure: true, // upgrade later with STARTTLS
+    secure: false, // upgrade later with STARTTLS
     auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
