@@ -27,6 +27,7 @@ router.post('/send-verification', async (req, res) => {
         // Check if email already voted for this contestant
         const existingVote = await Vote.findOne({
             voterEmail: email.toLowerCase(),
+            contestantId: contestantId,
             isVerified: true
         });
 
@@ -43,7 +44,7 @@ router.post('/send-verification', async (req, res) => {
         // delete any previous unverified votes for this email and contestant
         await Vote.deleteMany({
             voterEmail: email.toLowerCase(),
-            contestantId,
+            contestantId: contestantId,
             isVerified: false
         })
 
